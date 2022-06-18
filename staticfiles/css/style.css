@@ -1,9 +1,40 @@
 body {
-    background-color: rgb(255, 255, 255);
+    background-color:  #2e867f71 ;
     color: rgb(0, 0, 0);
 }
 
+
+
 a {
     text-decoration: none;
-    color: rgb(5, 138, 255);
+    color: royalblue;
+}
+#whois {
+    text-align: center;
+    color: black;
+    background: rgb(110, 75, 74);;
+
+    border-radius: 10px;
+    
+}
+
+
+#turma {
+
+    padding-left: 8px;
+    background-color: rgb(202, 0, 125);
+    color: black;
+    border-radius: 10px;
+    width:110px;
+}
+#turma2 {
+
+    padding-left: 25px;
+    background-color: rgb(197, 136, 255);
+    color: black;
+    border-radius: 10px;
+    width:90px;
+}
+#anonimato {
+    font-family: cursive;
 }
