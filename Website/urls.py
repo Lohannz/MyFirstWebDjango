@@ -18,15 +18,18 @@ from django.contrib import admin
 from django.urls import path, include
 
 #erro 404 pagina nao encontrada
-
 from django.conf.urls import handler404, handler500
 from core import views
+
 #from core.views import index, contato
+
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('painel/', admin.site.urls),
     path('', include('core.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = views.error404
 handler500 = views.error500

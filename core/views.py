@@ -1,22 +1,24 @@
-from asyncio.proactor_events import _ProactorDuplexPipeTransport
-from json import load
-from multiprocessing import context
+
+
+from gc import get_objects
+from http.client import OK
 from re import template
 from django import http
 from django.shortcuts import render
-from core.models import Produto
-from .models import Produto
+from core.models import Produto, Aluno
+from .models import Produto, Aluno
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
+from core.templates import turmas
 # Create your views here.
 
 def index(request):
-    produtos = Produto.objects.all()
+    alun = Aluno.objects.all()
+    
     context = {
-        'curso': 'Programação com Django framework',
-        'django':  'django é muito legal',
-        'produtos': produtos
+    'alunos': alun,
+    
     }
     return render(request,'index.html', context)
 
@@ -25,12 +27,28 @@ def contato(request):
     
 def produtos(request, pk):
     #prod = Produto.objects.get(id=pk)
-    prod = get_object_or_404(Produto, id=pk)
-
+    prod = get_object_or_404(Produto, id=id)
+    
     context = {
-        'produto': prod
+        'produto': prod,
+        
+        
     }
     return render(request, 'produto.html', context)
+
+def aluno(request, pk):
+    alun = get_object_or_404(Aluno,pk=pk)
+    lista = Aluno.objects.all()
+    context = {
+    'aluno': alun,
+    'lista': lista
+    }
+    return render(request, 'aluno.html', context)
+
+def turma(request):    
+
+    return render(request, 'turmas/turmas.html')
+
 
 def error404(request, exception):
     template = loader.get_template('404.html')
@@ -39,3 +57,4 @@ def error404(request, exception):
 def error500(request, ):
     template = loader.get_template('500.hmtl')
     return HttpResponse(content=template.render(), content_type='text/html; charset=utf9', status=500)
+

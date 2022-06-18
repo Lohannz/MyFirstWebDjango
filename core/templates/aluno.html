@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/aluno.css' %}">
+    <title>ALUNO</title>
+<!-- MUITO ESPERTO VOCẼ, MAS EU NÃO DEIXARIA PISTAS TÃO FACEIS ASSIM,DEIXARIA ?13.-->
+</head>
+<body>
+
+    <div class="paginaluno">
+        <h1 id="quem">PAGINA DO ALUNO </h1>
+        <h1 id="alunome">{{aluno.nome}}</h1>
+    </div>
+
+    <div class="fotoaluno">
+        <img id="foto" src="{{ aluno.foto.url }}" alt="imagem" width="">
+    </div>
+
+    <div class="nometurma">
+        <p id="nome"><font size="5"> {{aluno.nome}} {{aluno.sobrenome}} {{aluno.turma}}</p></font>
+        <!--<p id="sobre"><font size="5"></p></font>
+        <p id="turma"><font size="5"></p></font> -->
+
+    </div>
+    
+<div class="informacao">
+    <p id="infor"><font size="5">INFORMAÇÕES:</p></font>
+    <p id="inforbd"><li> {{aluno.adjetivo}}</li></p>
+</div>
+</html>

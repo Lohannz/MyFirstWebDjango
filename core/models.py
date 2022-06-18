@@ -1,6 +1,6 @@
-import email
-from pyexpat import model
+
 from django.db import models
+from stdimage.models import StdImageField
 
 # Create your models here.
 class Produto(models.Model):
@@ -19,3 +19,14 @@ class Cliente(models.Model):
 
     def __str__(self):
         return f'{self.nome} {self.sobrenome}'
+
+class Aluno(models.Model):
+    nome = models.CharField('Nome', max_length=30)
+    sobrenome = models.CharField('Sobrenome', max_length=30)
+    turma = models.IntegerField('Turma')
+    adjetivo = models.CharField(f'essa pessoa é', max_length=100)
+    foto = models.ImageField(upload_to='images/') 
+
+    def __str__(self):
+        return f'{self.nome} {self.sobrenome}'
+

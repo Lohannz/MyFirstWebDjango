@@ -5,37 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
+    <title>Jardim Meriti</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <h1 id="whois"> Alunos do Jardim Meriti</h1>
 </head>
-<center>
-<body>
-    <h1>index</h1>
-    <img src="{% static 'images/django.png' %}" width="100" height="100" >
-    <h2>{{curso}}</h2>
-    <p>{{django}}</p>
-<table>
-    <HEAd>
-        <tr>
-            <th>produto</th>
-            <th>preço</th>
 
-        </tr>
-    </HEAd>
-    <body>
-        
-    {% for produto in produtos %}
-    <tr>
-        <td><a href="{%url 'produto' produto.id %}">{{produto.nome}}</a></td>
-        <td>{{produto.preco}}</td>
-        
-    </tr>
-    {% endfor%}
-    
-</table>
- <button onclick="teste();">NÃO clique-me</button>
-</center>
-<script src="{% static 'js/main.js' %}"></script>
+<body>
+    <img id="logo"src="{% static 'images/logocorvosfundo.png' %}" width="50" height="50" >
+
+        <h2>{{curso}}</h2>
+    <table>
+<p id="turma"><font size="">TURMA 2006</p></font> 
+        <tbody>
+        {% for aluno in alunos %}
+            <tr class="alunos">
+                <td><li><font size="5"><a href="{% url 'aluno' aluno.id %}">{{aluno.nome}} {{aluno.sobrenome}}</a></font></li></td>
+                
+                <!--<td id="turma">{{aluno.turma}}</td> -->
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+ <!-- <a href="http://127.0.0.1:8000/turma/"> turmas</a><button onclick="{{ lista }}">lista de alunos</button> -->
+<p id="anonimato">who am i</p>
+
+ <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
